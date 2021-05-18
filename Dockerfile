@@ -2,6 +2,8 @@ FROM python:3.8-slim
 
 WORKDIR /protos
 
+COPY google ./google
+
 RUN pip install --no-cache-dir grpcio-tools==1.37.1
 
 ENTRYPOINT [ \
