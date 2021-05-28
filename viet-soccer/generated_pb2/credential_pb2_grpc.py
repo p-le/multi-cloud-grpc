@@ -16,12 +16,12 @@ class OauthCredentialsStub(object):
         """
         self.GetCredentials = channel.unary_unary(
                 '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
-                request_serializer=credential__pb2.Domain.SerializeToString,
+                request_serializer=credential__pb2.GetCredentialsRequest.SerializeToString,
                 response_deserializer=credential__pb2.Credentials.FromString,
                 )
         self.SaveCredentials = channel.unary_unary(
                 '/vietsoccer.firestore.api.OauthCredentials/SaveCredentials',
-                request_serializer=credential__pb2.Credentials.SerializeToString,
+                request_serializer=credential__pb2.SaveCredentialsRequest.SerializeToString,
                 response_deserializer=credential__pb2.SaveCredentialsResponse.FromString,
                 )
 
@@ -46,12 +46,12 @@ def add_OauthCredentialsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCredentials,
-                    request_deserializer=credential__pb2.Domain.FromString,
+                    request_deserializer=credential__pb2.GetCredentialsRequest.FromString,
                     response_serializer=credential__pb2.Credentials.SerializeToString,
             ),
             'SaveCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.SaveCredentials,
-                    request_deserializer=credential__pb2.Credentials.FromString,
+                    request_deserializer=credential__pb2.SaveCredentialsRequest.FromString,
                     response_serializer=credential__pb2.SaveCredentialsResponse.SerializeToString,
             ),
     }
@@ -76,7 +76,7 @@ class OauthCredentials(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
-            credential__pb2.Domain.SerializeToString,
+            credential__pb2.GetCredentialsRequest.SerializeToString,
             credential__pb2.Credentials.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -93,7 +93,7 @@ class OauthCredentials(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredentials/SaveCredentials',
-            credential__pb2.Credentials.SerializeToString,
+            credential__pb2.SaveCredentialsRequest.SerializeToString,
             credential__pb2.SaveCredentialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
