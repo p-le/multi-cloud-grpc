@@ -17,7 +17,7 @@ class OauthCredentialsStub(object):
         self.GetCredentials = channel.unary_unary(
                 '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
                 request_serializer=credential__pb2.GetCredentialsRequest.SerializeToString,
-                response_deserializer=credential__pb2.Credentials.FromString,
+                response_deserializer=credential__pb2.GetCredentialsResponse.FromString,
                 )
         self.SaveCredentials = channel.unary_unary(
                 '/vietsoccer.firestore.api.OauthCredentials/SaveCredentials',
@@ -47,7 +47,7 @@ def add_OauthCredentialsServicer_to_server(servicer, server):
             'GetCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCredentials,
                     request_deserializer=credential__pb2.GetCredentialsRequest.FromString,
-                    response_serializer=credential__pb2.Credentials.SerializeToString,
+                    response_serializer=credential__pb2.GetCredentialsResponse.SerializeToString,
             ),
             'SaveCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.SaveCredentials,
@@ -77,7 +77,7 @@ class OauthCredentials(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
             credential__pb2.GetCredentialsRequest.SerializeToString,
-            credential__pb2.Credentials.FromString,
+            credential__pb2.GetCredentialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

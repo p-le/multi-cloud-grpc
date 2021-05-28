@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63redential.proto\x12\x18vietsoccer.firestore.api\x1a\x1cgoogle/api/annotations.proto\"\x80\x01\n\x0b\x43redentials\x12\r\n\x05token\x18\x01 \x01(\t\x12\x15\n\rrefresh_token\x18\x02 \x01(\t\x12\x11\n\ttoken_uri\x18\x03 \x01(\t\x12\x11\n\tclient_id\x18\x04 \x01(\t\x12\x15\n\rclient_secret\x18\x05 \x01(\t\x12\x0e\n\x06scopes\x18\x06 \x03(\t\"b\n\x16SaveCredentialsRequest\x12\x0c\n\x04host\x18\x01 \x01(\t\x12:\n\x0b\x63redentials\x18\x02 \x01(\x0b\x32%.vietsoccer.firestore.api.Credentials\"%\n\x15GetCredentialsRequest\x12\x0c\n\x04host\x18\x01 \x01(\t\"*\n\x17SaveCredentialsResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\xae\x02\n\x10OauthCredentials\x12\x81\x01\n\x0eGetCredentials\x12/.vietsoccer.firestore.api.GetCredentialsRequest\x1a%.vietsoccer.firestore.api.Credentials\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/credentials\x12\x95\x01\n\x0fSaveCredentials\x12\x30.vietsoccer.firestore.api.SaveCredentialsRequest\x1a\x31.vietsoccer.firestore.api.SaveCredentialsResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x0f/v1/credentials:\x04\x64\x61tab\x06proto3'
+  serialized_pb=b'\n\x10\x63redential.proto\x12\x18vietsoccer.firestore.api\x1a\x1cgoogle/api/annotations.proto\"\x80\x01\n\x0b\x43redentials\x12\r\n\x05token\x18\x01 \x01(\t\x12\x15\n\rrefresh_token\x18\x02 \x01(\t\x12\x11\n\ttoken_uri\x18\x03 \x01(\t\x12\x11\n\tclient_id\x18\x04 \x01(\t\x12\x15\n\rclient_secret\x18\x05 \x01(\t\x12\x0e\n\x06scopes\x18\x06 \x03(\t\"%\n\x15GetCredentialsRequest\x12\x0c\n\x04host\x18\x01 \x01(\t\"i\n\x16GetCredentialsResponse\x12?\n\x0b\x63redentials\x18\x01 \x01(\x0b\x32%.vietsoccer.firestore.api.CredentialsH\x00\x88\x01\x01\x42\x0e\n\x0c_credentials\"b\n\x16SaveCredentialsRequest\x12\x0c\n\x04host\x18\x01 \x01(\t\x12:\n\x0b\x63redentials\x18\x02 \x01(\x0b\x32%.vietsoccer.firestore.api.Credentials\"*\n\x17SaveCredentialsResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\xb9\x02\n\x10OauthCredentials\x12\x8c\x01\n\x0eGetCredentials\x12/.vietsoccer.firestore.api.GetCredentialsRequest\x1a\x30.vietsoccer.firestore.api.GetCredentialsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v1/credentials\x12\x95\x01\n\x0fSaveCredentials\x12\x30.vietsoccer.firestore.api.SaveCredentialsRequest\x1a\x31.vietsoccer.firestore.api.SaveCredentialsResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x0f/v1/credentials:\x04\x64\x61tab\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -94,6 +94,75 @@ _CREDENTIALS = _descriptor.Descriptor(
 )
 
 
+_GETCREDENTIALSREQUEST = _descriptor.Descriptor(
+  name='GetCredentialsRequest',
+  full_name='vietsoccer.firestore.api.GetCredentialsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='host', full_name='vietsoccer.firestore.api.GetCredentialsRequest.host', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=207,
+  serialized_end=244,
+)
+
+
+_GETCREDENTIALSRESPONSE = _descriptor.Descriptor(
+  name='GetCredentialsResponse',
+  full_name='vietsoccer.firestore.api.GetCredentialsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='credentials', full_name='vietsoccer.firestore.api.GetCredentialsResponse.credentials', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_credentials', full_name='vietsoccer.firestore.api.GetCredentialsResponse._credentials',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=246,
+  serialized_end=351,
+)
+
+
 _SAVECREDENTIALSREQUEST = _descriptor.Descriptor(
   name='SaveCredentialsRequest',
   full_name='vietsoccer.firestore.api.SaveCredentialsRequest',
@@ -128,40 +197,8 @@ _SAVECREDENTIALSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=305,
-)
-
-
-_GETCREDENTIALSREQUEST = _descriptor.Descriptor(
-  name='GetCredentialsRequest',
-  full_name='vietsoccer.firestore.api.GetCredentialsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='host', full_name='vietsoccer.firestore.api.GetCredentialsRequest.host', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=307,
-  serialized_end=344,
+  serialized_start=353,
+  serialized_end=451,
 )
 
 
@@ -192,14 +229,19 @@ _SAVECREDENTIALSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=346,
-  serialized_end=388,
+  serialized_start=453,
+  serialized_end=495,
 )
 
+_GETCREDENTIALSRESPONSE.fields_by_name['credentials'].message_type = _CREDENTIALS
+_GETCREDENTIALSRESPONSE.oneofs_by_name['_credentials'].fields.append(
+  _GETCREDENTIALSRESPONSE.fields_by_name['credentials'])
+_GETCREDENTIALSRESPONSE.fields_by_name['credentials'].containing_oneof = _GETCREDENTIALSRESPONSE.oneofs_by_name['_credentials']
 _SAVECREDENTIALSREQUEST.fields_by_name['credentials'].message_type = _CREDENTIALS
 DESCRIPTOR.message_types_by_name['Credentials'] = _CREDENTIALS
-DESCRIPTOR.message_types_by_name['SaveCredentialsRequest'] = _SAVECREDENTIALSREQUEST
 DESCRIPTOR.message_types_by_name['GetCredentialsRequest'] = _GETCREDENTIALSREQUEST
+DESCRIPTOR.message_types_by_name['GetCredentialsResponse'] = _GETCREDENTIALSRESPONSE
+DESCRIPTOR.message_types_by_name['SaveCredentialsRequest'] = _SAVECREDENTIALSREQUEST
 DESCRIPTOR.message_types_by_name['SaveCredentialsResponse'] = _SAVECREDENTIALSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -210,19 +252,26 @@ Credentials = _reflection.GeneratedProtocolMessageType('Credentials', (_message.
   })
 _sym_db.RegisterMessage(Credentials)
 
-SaveCredentialsRequest = _reflection.GeneratedProtocolMessageType('SaveCredentialsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SAVECREDENTIALSREQUEST,
-  '__module__' : 'credential_pb2'
-  # @@protoc_insertion_point(class_scope:vietsoccer.firestore.api.SaveCredentialsRequest)
-  })
-_sym_db.RegisterMessage(SaveCredentialsRequest)
-
 GetCredentialsRequest = _reflection.GeneratedProtocolMessageType('GetCredentialsRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETCREDENTIALSREQUEST,
   '__module__' : 'credential_pb2'
   # @@protoc_insertion_point(class_scope:vietsoccer.firestore.api.GetCredentialsRequest)
   })
 _sym_db.RegisterMessage(GetCredentialsRequest)
+
+GetCredentialsResponse = _reflection.GeneratedProtocolMessageType('GetCredentialsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETCREDENTIALSRESPONSE,
+  '__module__' : 'credential_pb2'
+  # @@protoc_insertion_point(class_scope:vietsoccer.firestore.api.GetCredentialsResponse)
+  })
+_sym_db.RegisterMessage(GetCredentialsResponse)
+
+SaveCredentialsRequest = _reflection.GeneratedProtocolMessageType('SaveCredentialsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SAVECREDENTIALSREQUEST,
+  '__module__' : 'credential_pb2'
+  # @@protoc_insertion_point(class_scope:vietsoccer.firestore.api.SaveCredentialsRequest)
+  })
+_sym_db.RegisterMessage(SaveCredentialsRequest)
 
 SaveCredentialsResponse = _reflection.GeneratedProtocolMessageType('SaveCredentialsResponse', (_message.Message,), {
   'DESCRIPTOR' : _SAVECREDENTIALSRESPONSE,
@@ -240,8 +289,8 @@ _OAUTHCREDENTIALS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=391,
-  serialized_end=693,
+  serialized_start=498,
+  serialized_end=811,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCredentials',
@@ -249,7 +298,7 @@ _OAUTHCREDENTIALS = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_GETCREDENTIALSREQUEST,
-    output_type=_CREDENTIALS,
+    output_type=_GETCREDENTIALSRESPONSE,
     serialized_options=b'\202\323\344\223\002\021\022\017/v1/credentials',
     create_key=_descriptor._internal_create_key,
   ),
