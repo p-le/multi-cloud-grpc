@@ -5,7 +5,7 @@ import grpc
 import credential_pb2 as credential__pb2
 
 
-class OauthCredentialStub(object):
+class OauthCredentialsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,15 +14,26 @@ class OauthCredentialStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.GetCredentials = channel.unary_unary(
+                '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
+                request_serializer=credential__pb2.Domain.SerializeToString,
+                response_deserializer=credential__pb2.Credentials.FromString,
+                )
         self.SaveCredentials = channel.unary_unary(
-                '/vietsoccer.firestore.api.OauthCredential/SaveCredentials',
-                request_serializer=credential__pb2.Credential.SerializeToString,
-                response_deserializer=credential__pb2.SaveCredentialResponse.FromString,
+                '/vietsoccer.firestore.api.OauthCredentials/SaveCredentials',
+                request_serializer=credential__pb2.Credentials.SerializeToString,
+                response_deserializer=credential__pb2.SaveCredentialsResponse.FromString,
                 )
 
 
-class OauthCredentialServicer(object):
+class OauthCredentialsServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def GetCredentials(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def SaveCredentials(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -31,22 +42,44 @@ class OauthCredentialServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_OauthCredentialServicer_to_server(servicer, server):
+def add_OauthCredentialsServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'GetCredentials': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCredentials,
+                    request_deserializer=credential__pb2.Domain.FromString,
+                    response_serializer=credential__pb2.Credentials.SerializeToString,
+            ),
             'SaveCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.SaveCredentials,
-                    request_deserializer=credential__pb2.Credential.FromString,
-                    response_serializer=credential__pb2.SaveCredentialResponse.SerializeToString,
+                    request_deserializer=credential__pb2.Credentials.FromString,
+                    response_serializer=credential__pb2.SaveCredentialsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vietsoccer.firestore.api.OauthCredential', rpc_method_handlers)
+            'vietsoccer.firestore.api.OauthCredentials', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class OauthCredential(object):
+class OauthCredentials(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetCredentials(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredentials/GetCredentials',
+            credential__pb2.Domain.SerializeToString,
+            credential__pb2.Credentials.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SaveCredentials(request,
@@ -59,8 +92,8 @@ class OauthCredential(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredential/SaveCredentials',
-            credential__pb2.Credential.SerializeToString,
-            credential__pb2.SaveCredentialResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vietsoccer.firestore.api.OauthCredentials/SaveCredentials',
+            credential__pb2.Credentials.SerializeToString,
+            credential__pb2.SaveCredentialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
